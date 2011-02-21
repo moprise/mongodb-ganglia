@@ -16,7 +16,10 @@ class ServerStatus:
     def __init__(self):
         self.status = self.getServerStatus()
         # call individual metrics
-        for f in ["conns", "btree", "mem", "repl", "ops", "lock"]:
+        # Modified by removing repl - must not be reported in a master-only
+        # mongodb configuration.  Add back when replicas introduced in
+        # production deployment
+        for f in ["conns", "btree", "mem", "ops", "lock"]:
             getattr(self,f)()
 
     def getServerStatus(self):

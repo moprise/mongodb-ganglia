@@ -1,0 +1,3 @@
+SHELL=/bin/bash
+# m h dom mon dow command
+* * * * *     /home/ubuntu/mongodb-ganglia/gmetric-mongodb.py
